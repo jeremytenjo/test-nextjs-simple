@@ -7,6 +7,7 @@
     "start": "next",
     "build": "next build",
     "dev": "next start",
+    "deploy": "now",
     "lint:fix": "eslint ./src --fix",
     "lint:check": "eslint ./src"
   },
