@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.0.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "torrent-search-api": "^2.0.9"
+    "next": "^9.0.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "torrent-search-api": "^2.0.3"
   }
 }
