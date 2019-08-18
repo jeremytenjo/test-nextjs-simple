@@ -3,13 +3,16 @@ import Router from 'next/router'
 import baserUrl from '../constants/baseUrl'
 
 const Index = ({ movies }) => {
-  const handlePosterClick = async () => {
-    const res = await fetch('/api/movies')
-    const data = await res.json()
-  }
+  console.log(movies)
+
+  // const handlePosterClick = async () => {
+  //   const res = await fetch('/api/movies')
+  //   const data = await res.json()
+  // }
 
   return (
     <div>
+      asdf
       {movies.map(({ posterUrl, ...rest }) => {
         return <img key={posterUrl} src={posterUrl} {...rest} />
       })}

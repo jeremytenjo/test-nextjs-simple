@@ -51,5 +51,18 @@ export default async (req, res) => {
       : null
   })
 
-  res.json(await Promise.all(latestMovies))
+  res.status(200).json(await Promise.all(latestMovies))
 }
+
+// const users = [
+//   {
+//     id: 1
+//   },
+//   { id: 2 },
+//   { id: 3 }
+// ]
+
+// export default (req, res) => {
+//   // Get data from your database
+//   res.status(200).json(users)
+// }
