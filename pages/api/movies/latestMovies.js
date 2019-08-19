@@ -18,8 +18,13 @@ const getMovieInfo = async (query) => {
 }
 
 export default async (req, res) => {
-  const resultLimit = 3
-  const movies = await TorrentSearchApi.search('1080', 'Movies', resultLimit)
+  const currentYear = new Date().getFullYear()
+  const resultLimit = 10
+  const movies = await TorrentSearchApi.search(
+    `1080 ${currentYear}`,
+    'Movies',
+    resultLimit
+  )
   const moviesList = await movies.map(async (serie, index) => {
     let magnet = await TorrentSearchApi.getMagnet(serie)
     serie.magnet = magnet
@@ -29,8 +34,9 @@ export default async (req, res) => {
   const data = await Promise.all(moviesList)
 
   const latestMovies = data.map(async (movie) => {
-    let formatTitle = movie.title.replace(/ *\([^)]*\) */g, '')
-    formatTitle = formatTitle.replace(/ *\[[^\]]*]/g, '')
+    // console.log(movie)
+
+    let formatTitle = movie.title.split(currentYear)[0].replace('.', ' ')
 
     const seriesInfo = await getMovieInfo(formatTitle)
     let posterUrl = ''

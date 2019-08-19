@@ -3,8 +3,6 @@ import Router from 'next/router'
 import baserUrl from '../constants/baseUrl'
 
 const Index = ({ movies }) => {
-  console.log(movies)
-
   // const handlePosterClick = async () => {
   //   const res = await fetch('/api/movies')
   //   const data = await res.json()
@@ -12,7 +10,6 @@ const Index = ({ movies }) => {
 
   return (
     <div>
-      asdf
       {movies.map(({ posterUrl, ...rest }) => {
         return <img key={posterUrl} src={posterUrl} {...rest} />
       })}
@@ -21,7 +18,7 @@ const Index = ({ movies }) => {
 }
 
 Index.getInitialProps = async function() {
-  const res = await fetch(`${baserUrl}api/movies/allMovies`)
+  const res = await fetch(`${baserUrl}movies/latestMovies`)
   const movies = await res.json()
 
   return {
