@@ -18,7 +18,17 @@ const Index = ({ movies }) => {
 }
 
 Index.getInitialProps = async function() {
-  const res = await fetch(`${baserUrl}movies/latestMovies`)
+  const currentYear = new Date().getFullYear()
+  const body = {
+    type: 'Movies',
+    quantity: 10,
+    query: `1080 ${currentYear}`
+  }
+
+  const res = await fetch(`${baserUrl}TorrentSearch/search`, {
+    method: 'post',
+    body
+  })
   const movies = await res.json()
 
   return {
