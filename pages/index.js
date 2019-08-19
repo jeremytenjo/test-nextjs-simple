@@ -27,7 +27,10 @@ Index.getInitialProps = async function() {
 
   const res = await fetch(baserUrl, {
     method: 'post',
-    body
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
   })
   const movies = await res.json()
 
