@@ -3,7 +3,7 @@ import Router from 'next/router'
 import baserUrl from '../constants/baseUrl'
 
 const Index = ({ movies }) => {
-  // const handlePosterClick = async () => {
+  // const handlePosterClick = async ({magnet}) => {
   //   const res = await fetch('/api/movies')
   //   const data = await res.json()
   // }
@@ -25,7 +25,7 @@ Index.getInitialProps = async function() {
     query: `1080 ${currentYear}`
   }
 
-  const res = await fetch(`${baserUrl}TorrentSearch/search`, {
+  const res = await fetch(baserUrl, {
     method: 'post',
     body
   })
